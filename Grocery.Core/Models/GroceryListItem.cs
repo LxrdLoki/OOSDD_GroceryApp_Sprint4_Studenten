@@ -1,10 +1,20 @@
-﻿namespace Grocery.Core.Models
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace Grocery.Core.Models
 {
     public class GroceryListItem : Model
     {
         public int GroceryListId { get; set; }
         public int ProductId { get; set; }
-        public int Amount { get; set; }
+
+        // Replace ObservableProperty<int> with a standard property and use SetProperty for change notification
+        private int _amount;
+        public int Amount
+        {
+            get => _amount;
+            set => SetProperty(ref _amount, value);
+        }
+
         public GroceryListItem(int id, int groceryListId, int productId, int amount) : base(id, "")
         {
             GroceryListId = groceryListId;
