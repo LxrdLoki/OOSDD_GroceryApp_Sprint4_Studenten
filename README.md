@@ -19,5 +19,30 @@ Deze UC toont de klanten die een bepaald product hebben gekocht:
 - In GroceryListViewModel maak je de methode ShowBoughtProducts(). Als de Client de rol admin heeft dan navigeer je naar BoughtProductsView. Anders doe je niets.  
 - In GroceryListView voeg je een ToolbarItem toe met als binding Client.Name en als Command ShowBoughtProducts.  
 
+## GitFlow beschrijving
 
-  
+Main: bevat alleen geteste, productieklaar code. Merges naar main gebeuren na validatie. 
+
+Dev: integratiebranch voor features en bugfixes, waar pipelines draaien voor tests en builds.
+
+Feature: voor het ontwikkelen van nieuwe functionaliteiten, wordt gemerged naar dev
+
+Bugfix: voor het oplossen van eventuele bugs
+
+Meer informatie -> https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+
+## Workflow
+
+* Maak een nieuwe branch gebaseerd op dev (git checkout -b feature/UC1 dev)
+
+* Ontwikkel, commit met conventionele berichten, push regelmatig
+
+* Maak een pull request naar dev en review
+
+* Na merge draaien pipelines automatisch
+
+* Als dev stabiel is: merge dev naar main via pull request
+
+* Tag de release (bv. v0.0.1)
+
+Meer informatie -> https://git-scm.com/book/en/v2/Git-Basics-Tagging
