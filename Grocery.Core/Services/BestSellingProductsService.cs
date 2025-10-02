@@ -1,7 +1,6 @@
 ﻿using Grocery.Core.Interfaces.Repositories;
 using Grocery.Core.Interfaces.Services;
 using Grocery.Core.Models;
-using System.Diagnostics;
 
 
 namespace Grocery.Core.Services
@@ -33,7 +32,7 @@ namespace Grocery.Core.Services
                 foreach(GroceryListItem listedItem in groceries)
                 {
                     // Check if ID matches, always unique
-                    if(listedItem.Id == item.Id)
+                    if(listedItem.ProductId == item.Id)
                     {
                         // If the item is within a grocery list, apply the amount
                         soldAmount += listedItem.Amount;
@@ -48,7 +47,7 @@ namespace Grocery.Core.Services
 
             // Loop through the bestproductlist and order by descending based on sold amount
             // Then only take the top 5
-            BestProductList = [.. BestProductList.OrderByDescending<BestSellingProducts, object>(
+            BestProductList = [.. BestProductList.OrderByDescending(
                 product => product.NrOfSells
             ).Take(amount)];
 
