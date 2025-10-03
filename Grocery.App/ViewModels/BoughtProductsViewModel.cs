@@ -26,7 +26,7 @@ namespace Grocery.App.ViewModels
         {
             // Load the bought products for the selected product
             BoughtProductsList.Clear();
-            var boughtProducts = _boughtProductsService.Get(SelectedProduct?.Id);
+            List<BoughtProducts> boughtProducts = _boughtProductsService.Get(SelectedProduct?.Id);
             foreach (var item in boughtProducts)
             {
                 BoughtProductsList.Add(item);
