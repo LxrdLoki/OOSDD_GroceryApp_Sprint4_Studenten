@@ -38,7 +38,7 @@ namespace TestCore
         [TestCase("user3", "sxnIcZdYt8wC8MYWcQVQjQ==.FKd5Z/jwxPv3a63lX+uvQ0+P7EuNYZybvkmdhbnkIHA")]
         public void TestPasswordHelperReturnsFalse(string password, string passwordHash)
         {
-            Assert.IsFalse(PasswordHelper.VerifyPassword(password, passwordHash));
+            Assert.That(PasswordHelper.VerifyPassword(password, passwordHash), Is.False);
         }
     }
 }
