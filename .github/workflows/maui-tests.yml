@@ -7,11 +7,10 @@ on:
     branches:
       - main
       - dev
-      - "feature/pipelines"
   pull_request:
     branches:
       - main
-      - deve
+      - dev
 
 jobs:
   test:
